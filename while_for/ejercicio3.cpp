@@ -3,22 +3,40 @@
 using namespace std;
 
 int main(){
-	int resultado = 0;
 	int N = 0;
+	int mayor = 0;
+	int dsnum = 0;
 	
-	cout << "Introduce el numero para calcular la media de todos los que entren en el: ";
+	bool ds = false;
+	
+	cout << "Escribe un numero, luego escribiras otro para comparar cual es mayor: ";
 	cin >> N;
 	cout << endl;
 	
-	for(int i = 1; i <= N; i++){
-		cout << i << endl;
+	ds = true;
+	mayor = N;
+	
+	while(ds == true){
 		
-		if(i == N){
-			resultado = i;
+		cout << "Ahora introduce otro numero: ";
+		cin >> N;
+		cout << endl;
+		
+		if(N > mayor){
+			mayor = N;
+		}
+		
+		cout << "Quieres introducir mas numeros para continuar? (escribe 1 para si, 0 para no): ";
+		cin >> dsnum;
+		cout << endl;
+		
+		if(dsnum <= 0){
+			ds = false;
+			break;
 		}
 	}
 	
-	cout << "El numero mayor es es: " << resultado;
+	cout << "El numero mayor de los que introdujiste es: " << mayor;
 	
 	return 0;
 }
